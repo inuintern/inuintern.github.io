@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>2026 현장교육실습 기업 참여안내 | 인천대학교 현장실습지원센터</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"/>
+<style>
+:root{
+  --navy:#0B2D59;
+  --yellow:#F5B417;
+  --ink:#1f2937;
+  --muted:#6b7280;
+  --line:#d9dee7;
+  --line-soft:#e8ecf2;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Pretendard',sans-serif;background:#fff;color:var(--ink);word-break:keep-all;line-height:1.7;}
+a{text-decoration:none;color:inherit;}
+table{border-collapse:collapse;width:100%;}
+
+/* ===== HEADER ===== */
+header{border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:100;}
+.hd-inner{max-width:1080px;margin:0 auto;padding:0 20px;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.hd-brand{display:flex;align-items:center;gap:12px;}
+.hd-brand img{height:30px;display:block;}
+.hd-brand .t{font-size:.95rem;font-weight:700;color:var(--navy);}
+.hd-brand .s{font-size:.72rem;color:var(--muted);display:block;line-height:1.3;}
+.hd-cta{flex-shrink:0;display:inline-flex;align-items:center;gap:6px;font-size:.85rem;font-weight:700;color:#fff;background:var(--navy);border:1px solid var(--navy);border-radius:4px;padding:9px 16px;white-space:nowrap;transition:background .15s;}
+.hd-cta:hover{background:#0d3468;}
+.hd-cta::after{content:'↗';font-weight:400;color:var(--yellow);}
+@media(max-width:720px){.hd-cta{display:none;}}
+
+/* ===== NAV (page tabs) ===== */
+nav{border-bottom:1px solid var(--line);background:#fff;position:sticky;top:64px;z-index:99;overflow-x:auto;white-space:nowrap;}
+nav::-webkit-scrollbar{height:0;}
+.nav-inner{max-width:1080px;margin:0 auto;padding:0 12px;}
+.tab{display:inline-block;padding:13px 14px;font-size:.87rem;font-weight:600;color:var(--muted);border-bottom:3px solid transparent;cursor:pointer;background:none;border-top:none;border-left:none;border-right:none;font-family:inherit;}
+.tab:hover{color:var(--navy);}
+.tab.active{color:var(--navy);border-bottom-color:var(--yellow);}
+
+/* ===== LAYOUT (one-page) ===== */
+.page{display:block;scroll-margin-top:120px;}
+.page + .page{border-top:1px solid var(--line-soft);}
+.wrap{max-width:1080px;margin:0 auto;padding:56px 20px 20px;}
+.page-title{font-size:1.6rem;font-weight:800;color:var(--navy);margin-bottom:6px;}
+.page-desc{font-size:.92rem;color:var(--muted);margin-bottom:36px;}
+h2.sec{font-size:1.12rem;font-weight:800;color:var(--navy);margin:44px 0 16px;padding-left:12px;border-left:4px solid var(--yellow);line-height:1.4;}
+h2.sec:first-of-type{margin-top:0;}
+p.body{font-size:.92rem;margin-bottom:10px;}
+.note{font-size:.8rem;color:var(--muted);margin-top:10px;}
+.note li{margin-left:18px;}
+
+/* ===== COMPONENTS ===== */
+.grid2{display:grid;gap:16px;}
+@media(min-width:760px){.grid2{grid-template-columns:1fr 1fr;}}
+.grid3{display:grid;gap:16px;}
+@media(min-width:760px){.grid3{grid-template-columns:repeat(3,1fr);}}
+
+.box{border:1px solid var(--line);border-radius:4px;padding:20px 22px;background:#fff;}
+.box h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:10px;}
+.box h3 .badge{display:inline-block;font-size:.7rem;font-weight:700;color:var(--navy);border:1px solid var(--yellow);background:#fff;padding:1px 8px;border-radius:2px;margin-left:8px;vertical-align:2px;}
+.box ul{list-style:none;}
+.box ul li{font-size:.87rem;padding:5px 0 5px 14px;position:relative;}
+.box ul li::before{content:'';position:absolute;left:0;top:14px;width:5px;height:5px;background:var(--navy);}
+
+.numlist{list-style:none;counter-reset:n;}
+.numlist>li{counter-increment:n;position:relative;padding:14px 0 14px 46px;border-bottom:1px solid var(--line-soft);font-size:.9rem;}
+.numlist>li:last-child{border-bottom:none;}
+.numlist>li::before{content:counter(n,decimal-leading-zero);position:absolute;left:0;top:14px;font-size:.95rem;font-weight:800;color:var(--yellow);}
+.numlist .tt{font-weight:700;color:var(--navy);display:block;}
+.numlist .dd{font-size:.85rem;color:var(--muted);}
+
+/* ===== 제도 개요 강조 ===== */
+.def-box{border:1px solid var(--line);border-radius:4px;padding:24px 26px;height:100%;}
+.def-box .tag{font-size:.72rem;font-weight:700;color:var(--navy);letter-spacing:.06em;display:inline-block;border-bottom:2px solid var(--yellow);padding-bottom:3px;margin-bottom:12px;}
+.def-box p{font-size:.9rem;line-height:1.75;}
+
+.hero{border:1px solid var(--navy);background:var(--navy);border-radius:4px;padding:30px 32px;color:#fff;}
+.hero .lead{font-size:.75rem;font-weight:700;letter-spacing:.1em;color:var(--yellow);margin-bottom:12px;}
+.hero h3{font-size:1.42rem;font-weight:800;line-height:1.45;margin-bottom:14px;}
+.hero h3 em{font-style:normal;color:var(--yellow);}
+.hero p{font-size:.92rem;line-height:1.75;color:#d7e0ee;max-width:760px;}
+
+.derive{display:grid;gap:14px;margin-top:14px;}
+@media(min-width:760px){.derive{grid-template-columns:repeat(3,1fr);}}
+.derive .arrow{text-align:center;color:var(--muted);font-size:.78rem;margin:14px 0 2px;}
+.dcard{border:1px solid var(--line);border-radius:4px;padding:22px 22px 24px;position:relative;}
+.dcard .no{font-size:.9rem;font-weight:800;color:var(--yellow);}
+.dcard h4{font-size:1.02rem;font-weight:800;color:var(--navy);margin:6px 0 12px;line-height:1.4;}
+.dcard p{font-size:.86rem;line-height:1.7;color:var(--ink);}
+.dcard.feature{border:2px solid var(--navy);}
+.dcard.feature .flag{position:absolute;top:-1px;right:-1px;background:var(--navy);color:#fff;font-size:.68rem;font-weight:700;padding:4px 10px;border-radius:0 3px 0 4px;}
+.dcard ul{list-style:none;margin-top:10px;}
+.dcard ul li{font-size:.84rem;padding:5px 0 5px 14px;position:relative;line-height:1.6;}
+.dcard ul li::before{content:'';position:absolute;left:0;top:12px;width:5px;height:5px;background:var(--navy);}
+
+th,td{border:1px solid var(--line);padding:10px 12px;font-size:.86rem;text-align:center;}
+th{background:var(--navy);color:#fff;font-weight:700;}
+td.l{text-align:left;}
+td.strong{color:var(--navy);font-weight:700;}
+tr.hl td{background:#f7f9fc;font-weight:700;color:var(--navy);}
+.th-row td:first-child{background:#f7f9fc;font-weight:700;color:var(--navy);}
+
+/* 비교표 강조 열 (현장실습학기제) */
+.cmp{position:relative;border-collapse:separate;border-spacing:0;}
+.cmp th,.cmp td{border:1px solid var(--line);}
+.cmp th.feat{background:#08213f;}
+.cmp td.feat{background:#f2f6fc;color:var(--navy);font-weight:700;border-left:2px solid var(--navy);border-right:2px solid var(--navy);}
+.cmp tr:first-child th.feat{border-top:2px solid var(--navy);}
+.cmp tr:last-child td.feat{border-bottom:2px solid var(--navy);}
+
+.callout{border:1px solid var(--line);border-left:4px solid var(--yellow);border-radius:0 4px 4px 0;padding:14px 18px;font-size:.87rem;margin-top:18px;}
+.callout b{color:var(--navy);}
+.callout.red{border-left-color:#b03a2e;}
+.callout.red b{color:#b03a2e;}
+
+.kv{display:grid;grid-template-columns:150px 1fr;border:1px solid var(--line);border-radius:4px;overflow:hidden;}
+.kv>div{padding:11px 16px;font-size:.87rem;border-bottom:1px solid var(--line-soft);}
+.kv>div:nth-last-child(-n+2){border-bottom:none;}
+.kv .k{background:#f7f9fc;font-weight:700;color:var(--navy);}
+
+.formula{border:1px solid var(--navy);border-radius:4px;padding:18px 22px;background:var(--navy);color:#fff;font-size:.95rem;}
+.formula .lb{color:var(--yellow);font-weight:700;font-size:.8rem;letter-spacing:.08em;display:block;margin-bottom:6px;}
+.formula small{display:block;color:#b9c6da;font-size:.78rem;margin-top:6px;}
+
+/* ===== SEMESTER PAGES ===== */
+.sem-card{border:1px solid var(--line);border-radius:4px;padding:26px 26px 30px;margin-bottom:24px;}
+.sem-card h3{font-size:1.15rem;font-weight:800;color:var(--navy);margin-bottom:18px;}
+.sem-info{display:grid;gap:12px;margin-bottom:22px;}
+@media(min-width:640px){.sem-info{grid-template-columns:repeat(3,1fr);}}
+.sem-info .cell{border:1px solid var(--line-soft);border-radius:4px;padding:12px 16px;}
+.sem-info .cell .k{font-size:.75rem;color:var(--muted);display:block;}
+.sem-info .cell .v{font-size:1.02rem;font-weight:700;color:var(--navy);}
+.months{display:grid;grid-template-columns:repeat(12,1fr);gap:4px;}
+.months .m{border:1px solid var(--line);border-radius:2px;text-align:center;font-size:.8rem;padding:9px 0;color:var(--muted);}
+.months .m.on{background:var(--navy);border-color:var(--navy);color:#fff;font-weight:700;}
+.months .m.recruit{border:2px solid var(--yellow);color:var(--navy);font-weight:700;}
+.legend{font-size:.78rem;color:var(--muted);margin-top:14px;}
+.legend .sq{display:inline-block;width:11px;height:11px;vertical-align:-1px;margin:0 5px 0 14px;border-radius:2px;}
+.legend .sq.navy{background:var(--navy);}
+.legend .sq.gold{border:2px solid var(--yellow);}
+
+/* ===== MAJORS ===== */
+.college{margin-bottom:28px;}
+.college h3{font-size:.98rem;font-weight:800;color:#fff;background:var(--navy);padding:9px 16px;border-radius:4px 4px 0 0;}
+.college table{border-top:none;}
+.college td:first-child{width:230px;font-weight:700;color:var(--navy);background:#f7f9fc;}
+
+/* ===== CONTACT ===== */
+.contact-grid{display:grid;gap:16px;margin-top:8px;}
+@media(min-width:760px){.contact-grid{grid-template-columns:repeat(4,1fr);}}
+.contact-grid .cell{border:1px solid var(--line);border-radius:4px;padding:18px;text-align:center;}
+.contact-grid .k{font-size:.78rem;color:var(--muted);display:block;margin-bottom:4px;}
+.contact-grid .v{font-size:.98rem;font-weight:700;color:var(--navy);}
+
+footer{border-top:1px solid var(--line);padding:26px 20px;text-align:center;font-size:.78rem;color:var(--muted);}
+
+/* ===== BACK TO TOP ===== */
+#toTop{position:fixed;right:24px;bottom:24px;width:46px;height:46px;border-radius:4px;background:var(--navy);color:#fff;border:none;cursor:pointer;font-size:1.2rem;line-height:1;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s;z-index:200;box-shadow:0 2px 8px rgba(11,45,89,.25);}
+#toTop.show{opacity:1;visibility:visible;}
+#toTop:hover{background:#0d3468;}
+#toTop::after{content:'↑';font-weight:700;}
+
+/* ===== MAJORS TOGGLE ===== */
+#majors{margin-top:16px;}
+
+@media print{nav,header,#toTop{position:static;} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hd-inner">
+    <div class="hd-brand">
+      <img src="data:image/png;base64,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" alt="INU 인천대학교"/>
+      <div>
+        <span class="t">2026 현장교육실습 기업 참여안내</span>
+        <span class="s">인천대학교 현장실습지원센터 · 현장실습학기제(Co-op) 기업 가이드</span>
+      </div>
+    </div>
+    <a class="hd-cta" href="https://intern.inu.ac.kr" target="_blank" rel="noopener">현장실습 온라인 시스템 바로가기</a>
+  </div>
+</header>
+
+<nav>
+  <div class="nav-inner" id="tabbar">
+    <button class="tab active" data-page="pg-overview">제도 개요</button>
+    <button class="tab" data-page="pg-period">운영 기간</button>
+    <button class="tab" data-page="pg-standard">운영 기준</button>
+    <button class="tab" data-page="pg-money">지원비 · 지원금</button>
+    <button class="tab" data-page="pg-process">운영 절차</button>
+    <button class="tab" data-page="pg-check">중간점검</button>
+    <button class="tab" data-page="pg-caution">유의사항 · 보험 · 출결</button>
+    <button class="tab" data-page="pg-majors">학과 직무분야</button>
+    <button class="tab" data-page="pg-contact">문의</button>
+  </div>
+</nav>
+
+<!-- ===================== 제도 개요 ===================== -->
+<section class="page" id="pg-overview">
+<div class="wrap">
+  <div class="page-title">현장실습학기제 개요</div>
+
+<h2 class="sec" style="margin-bottom:22px">제도정의 및 목적</h2>
+
+  <div class="grid2" style="margin-bottom:20px">
+    <div class="def-box">
+      <span class="tag">제도 정의</span>
+      <p>현장실습학기제는 3~4학년 학부 재학생이 전공에서 배운 이론적 지식을 바탕으로, 기업 현장에서 전공과 관련된 실제 업무를 직접 수행해보는 전공심화 교과과정입니다. 개인의 역량이나 관심사에 따라 선택하는 아르바이트 · 인턴 제도와 달리, 반드시 '전공과 관련된' 직무실습을 진행해야 한다는 점에서 차이가 있습니다.</p>
+    </div>
+    <div class="def-box">
+      <span class="tag">목적</span>
+      <p>학생을 기업에 노동력으로 제공하기 위한 제도가 아닙니다. 전공 지식을 기반으로 관련 직무를 직접 체험하고 본인의 역량과 진로를 탐색할 수 있는 실질적인 교육 기회를 제공하는 것이 핵심 목적이며, 실무 경험과 함께 기업 문화 이해, 사회인으로서의 기본 태도를 익혀 본격적인 사회 진출을 준비하도록 합니다.</p>
+    </div>
+  </div>
+
+  <h2 class="sec" style="margin-bottom:22px">기업 참여 시 이점</h2>
+  <div class="hero">
+    <div class="lead" style="font-size:.92rem">채용 연계 과정으로 운영 시</div>
+    <h3>실습 기간을 <em>검증형 채용 과정</em>으로 활용할 수 있습니다.</h3>
+    <p>현장실습학기제를 채용 연계 과정으로 운영하면, 급여 부담을 덜면서 지원자를 실제 업무에 배치해 검증하고, 그대로 정규 채용으로 이어갈 수 있습니다. 채용 전 검증 · 채용 후 정착까지 하나의 흐름으로 연결되어 아래 세 가지 이점이 함께 발생합니다.</p>
+  </div>
+
+  <div class="derive">
+  </div>
+  <div class="derive">
+    <div class="dcard feature">
+      <span class="flag">핵심</span>
+      <span class="no">01</span>
+      <h4>우수 인재의 검증된 채용</h4>
+      <p>실습생을 현업에 직접 배치하여 서류와 면접만으로는 확인하기 어려운 실제 역량을 검증할 수 있습니다. 채용 연계 과정으로 운영하면 검증 결과를 그대로 채용 의사결정에 반영할 수 있습니다.</p>
+      <ul>
+        <li>직무 역량 · 문제 해결 능력을 실제 업무로 확인</li>
+        <li>조직 적합성 · 근무 태도 등 정성 요소 사전 파악</li>
+        <li>채용 실패(조기 퇴사 · 미스매칭) 확률 대폭 감소</li>
+        <li>검증된 인재를 경쟁사보다 앞서 조기 확보</li>
+      </ul>
+    </div>
+    <div class="dcard">
+      <span class="no">02</span>
+      <h4>급여 부담 완화</h4>
+      <p>4대보험 중 산재보험만을 요건으로 하며, 근로계약 체결은 의무가 아닙니다. 급여는 최저임금 100%를 권장하되 교육시간 비율(최대 25%)에 따라 75%까지 차등지급할 수 있습니다.</p>
+      <ul>
+        <li>최저임금 100% 지급 시 대학 협약으로 25%까지 지원</li>
+        <li>소득신고 · 원천징수 대상 아님</li>
+      </ul>
+    </div>
+    <div class="dcard">
+      <span class="no">03</span>
+      <h4>교육 비용 및 시간 절감</h4>
+      <p>실습 기간 동안 이미 실무와 조직에 적응하므로, 채용 연계로 이어질 경우 별도의 온보딩 없이 곧바로 실무에 투입할 수 있습니다.</p>
+      <ul>
+        <li>신입사원 온보딩 기간 단축</li>
+        <li>재교육 · 재채용 비용 최소화</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="sec">현장실습학기제 · 일학습병행 · 인턴 비교</h2>
+  <table class="cmp">
+    <thead>
+      <tr><th style="width:120px">항목</th><th class="feat">현장실습학기제 (Co-op)</th><th>일학습병행</th><th>인턴</th></tr>
+    </thead>
+    <tbody class="th-row">
+      <tr><td>참여 대상</td><td class="feat">4학기 이상 수료한 3~4학년 재학생</td><td>4학년 진입 예정자<br/>(잔여학기 2학기 이상)</td><td>누구나</td></tr>
+      <tr><td>고용 형태</td><td class="feat">근로계약 미체결 · 학생 신분 유지</td><td>근로계약 체결<br/>(4대 보험 전체 적용)</td><td>근로계약 체결<br/>(4대 보험 전체 적용)</td></tr>
+      <tr><td>보험 적용</td><td class="feat">산재보험(기업) + 상해보험(대학)</td><td>4대 보험</td><td>4대 보험</td></tr>
+      <tr><td>목적</td><td class="feat">전공 실무 이해 · 진로 탐색<br/>정규 교육과정의 연장선</td><td>산업현장 맞춤형 직무훈련<br/>국가자격 취득 인재 양성</td><td>기업의 채용 · 업무 보조 목적<br/>기업과 개인 간 계약</td></tr>
+      <tr><td>핵심 특징</td><td class="feat">학생 신분 유지 + 실무 경험<br/>실습 결과 학점 인정</td><td>채용 후 훈련 진행<br/>총 11개월 (대학 4 + 기업 7)</td><td>시기 자유 (방학 중 · 졸업 후)<br/>실제 업무를 통한 상호 검증</td></tr>
+    </tbody>
+  </table>
+</div>
+</section>
+
+<!-- ===================== 운영 기간 (정규학기 + 계절학기) ===================== -->
+<section class="page" id="pg-period">
+<div class="wrap">
+  <div class="page-title">운영 기간 안내</div>
+
+
+  <h2 class="sec">정규학기 — 운영 기간 4개월</h2>
+  <div class="sem-card">
+    <h3>1학기</h3>
+    <div class="sem-info">
+      <div class="cell"><span class="k">모집</span><span class="v">1월 중 모집</span></div>
+      <div class="cell"><span class="k">실습 기간</span><span class="v">3월 ~ 6월</span></div>
+      <div class="cell"><span class="k">운영 기간</span><span class="v">4개월</span></div>
+    </div>
+    <div class="months">
+      <div class="m recruit">1</div><div class="m">2</div><div class="m on">3</div><div class="m on">4</div><div class="m on">5</div><div class="m on">6</div>
+      <div class="m">7</div><div class="m">8</div><div class="m">9</div><div class="m">10</div><div class="m">11</div><div class="m">12</div>
+    </div>
+  </div>
+
+  <div class="sem-card">
+    <h3>2학기</h3>
+    <div class="sem-info">
+      <div class="cell"><span class="k">모집</span><span class="v">7월 중 모집</span></div>
+      <div class="cell"><span class="k">실습 기간</span><span class="v">9월 ~ 12월</span></div>
+      <div class="cell"><span class="k">운영 기간</span><span class="v">4개월</span></div>
+    </div>
+    <div class="months">
+      <div class="m">1</div><div class="m">2</div><div class="m">3</div><div class="m">4</div><div class="m">5</div><div class="m">6</div>
+      <div class="m recruit">7</div><div class="m">8</div><div class="m on">9</div><div class="m on">10</div><div class="m on">11</div><div class="m on">12</div>
+    </div>
+  </div>
+
+  <h2 class="sec">계절학기 — 운영 기간 1개월 / 6주 / 8주</h2>
+  <div class="sem-card">
+    <h3>여름 계절학기</h3>
+    <div class="sem-info">
+      <div class="cell"><span class="k">모집</span><span class="v">5월 중 모집</span></div>
+      <div class="cell"><span class="k">실습 기간</span><span class="v">6월 ~ 8월</span></div>
+      <div class="cell"><span class="k">운영 기간</span><span class="v">1개월 / 6주 / 8주</span></div>
+    </div>
+    <div class="months">
+      <div class="m">1</div><div class="m">2</div><div class="m">3</div><div class="m">4</div><div class="m recruit">5</div><div class="m on">6</div>
+      <div class="m on">7</div><div class="m on">8</div><div class="m">9</div><div class="m">10</div><div class="m">11</div><div class="m">12</div>
+    </div>
+  </div>
+
+  <div class="sem-card">
+    <h3>겨울 계절학기</h3>
+    <div class="sem-info">
+      <div class="cell"><span class="k">모집</span><span class="v">11월 중 모집</span></div>
+      <div class="cell"><span class="k">실습 기간</span><span class="v">1월 ~ 2월</span></div>
+      <div class="cell"><span class="k">운영 기간</span><span class="v">1개월 / 6주 / 8주</span></div>
+    </div>
+    <div class="months">
+      <div class="m on">1</div><div class="m on">2</div><div class="m">3</div><div class="m">4</div><div class="m">5</div><div class="m">6</div>
+      <div class="m">7</div><div class="m">8</div><div class="m">9</div><div class="m">10</div><div class="m recruit">11</div><div class="m">12</div>
+    </div>
+  </div>
+
+  <div class="legend">범례<span class="sq navy"></span>실습 기간<span class="sq gold"></span>모집 시기</div>
+  <div class="callout" style="margin-top:26px"><b>참고</b> — 정규학기 운영 기간은 4개월(예: 2학기 9월 1일 ~ 12월 31일)이며, 계절학기는 주급(6주 · 8주 과정) 또는 월급(1개월 과정) 방식으로 실습지원비가 지급됩니다.</div>
+</div>
+</section>
+
+<!-- ===================== 운영 기준 ===================== -->
+<section class="page" id="pg-standard">
+<div class="wrap">
+  <div class="page-title">실습 유형 및 운영 기준</div>
+  
+
+  <h2 class="sec">실습 유형</h2>
+  <div class="grid2">
+    <div class="box">
+      <h3>표준 현장실습학기제<span class="badge">권장</span></h3>
+      <ul>
+        <li>교육시간 비율: 전체의 10% ~ 25%</li>
+        <li>적용대상: 학교 주도형, 실습기관 주도형</li>
+        <li>실습시간: 주 5일, 1일 8시간 기준</li>
+        <li>기업부담: 교육시간 제외 실습시간에 대한 최저시급 지급</li>
+        <li>정보공시 대상에 해당</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>자율 현장실습학기제</h3>
+      <ul>
+        <li>교육시간 비율: 전체의 25% 초과</li>
+        <li>적용대상: 학교 주도형만 가능 (실습기관 주도형 불가)</li>
+        <li>실습시간: 주 4일 이상, 1일 6시간 이상</li>
+        <li>전일제 기준과 다르게 운영 시 자율로 적용</li>
+        <li>정보공시 대상에 해당하지 않음</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="sec">운영 주체</h2>
+  <table>
+    <tbody class="th-row">
+      <tr><td style="width:160px">학교 주도형</td><td class="l">학교에서 실습기관을 직접 발굴 · 모집하여 운영 → 표준 · 자율 현장실습학기제 모두 운영 가능</td></tr>
+      <tr><td>실습기관 주도형</td><td class="l">실습기관에서 참여 학교를 지정 · 모집하여 운영 → 표준 현장실습학기제만 운영 가능</td></tr>
+    </tbody>
+  </table>
+</div>
+</section>
+
+<!-- ===================== 지원비/지원금 ===================== -->
+<section class="page" id="pg-money">
+<div class="wrap">
+  <div class="page-title">실습지원비 · 기업지원금 안내</div>
+  
+
+  <h2 class="sec">실습지원비 지급 기준</h2>
+  <table>
+    <thead>
+      <tr><th>최저임금 비율</th><th>교육시간 비율</th><th>월 실습지원비 (1개월 · 4개월)</th><th>주 실습지원비 (6주 · 8주)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>75%</td><td>25%</td><td>1,617,600원</td><td>371,520원</td></tr>
+      <tr><td>80%</td><td>20%</td><td>1,725,504원</td><td>396,288원</td></tr>
+      <tr><td>85%</td><td>15%</td><td>1,833,348원</td><td>421,056원</td></tr>
+      <tr><td>90%</td><td>10%</td><td>1,941,192원</td><td>445,824원</td></tr>
+      <tr class="hl"><td>100%</td><td>10%</td><td>2,156,880원</td><td>495,360원</td></tr>
+    </tbody>
+  </table>
+  <ul class="note">
+    <li>2026년 최저시급 10,320원 기준 / 주 5일 · 1일 8시간 · 월 209시간</li>
+    <li>소득신고 · 원천징수 대상 아님 / 최저임금법 고시 내용에 따라 변동 가능</li>
+  </ul>
+
+  <div class="grid2" style="margin-top:24px">
+    <div class="formula">
+      <span class="lb">산출식</span>
+      최저임금 × 월 실습시간 × 직무수행 실습시간 비율
+      <small>직무수행비율 = 100 − 교육시간비율</small>
+    </div>
+    <div class="kv">
+      <div class="k">2026년 최저시급</div><div>10,320원</div>
+      <div class="k">월 기준 시간</div><div>209시간</div>
+      <div class="k">최소 교육시간 비율</div><div>10% 이상 필수</div>
+      <div class="k">지급 방식</div><div>월급 또는 주급 (6 · 8주 과정)</div>
+    </div>
+  </div>
+
+  <h2 class="sec">기업지원금</h2>
+  <div class="grid2">
+    <div class="box">
+      <h3>(A) 학생 지도에 따른 기업지원비 — 기업당 200,000원</h3>
+      <ul>
+        <li>현장교육담당자(멘토)의 노고에 감사드리는 의미로 지급</li>
+        <li>운영계획서 작성 시 계좌정보(예금주 · 은행명 · 계좌번호) 입력</li>
+        <li>실습 종료 후 자동 지급</li>
+        <li>협약 기업지원금(B)과 중복 지원 불가</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>(B) 협약에 따른 기업지원비 — 최저임금의 25% 이내 (539,220원 이내)</h3>
+      <ul>
+        <li>기업이 실습지원비를 최저임금 이상(월 2,156,880원 이상) 지급 시 대학이 기업에 지급</li>
+        <li>학생 모집 전 현장실습지원센터와 상호 우선 협의 필요</li>
+        <li>대학 배정 예산 한도 내 진행 / 상황에 따라 조기 마감 가능</li>
+        <li>학생 지도 기업지원비(A)와 중복 지원 불가</li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout"><b>중요</b> — 두 지원금 (A)와 (B)는 중복 지원이 불가합니다.</div>
+</div>
+</section>
+
+
+<!-- ===================== 운영 절차 ===================== -->
+<section class="page" id="pg-process">
+<div class="wrap">
+  <div class="page-title">운영 절차 체크리스트</div>
+  
+
+  <h2 class="sec">단계별 절차</h2>
+  <ol class="numlist">
+    <li><span class="tt">참여기업 신청 및 운영계획서 작성</span><span class="dd">신규: 온라인 신청 → 승인 → 계획서 작성 / 기존: 계획서 작성</span></li>
+    <li><span class="tt">학생 신청기간</span><span class="dd">학생 신청기간 동안 기업 등록 가능</span></li>
+    <li><span class="tt">기업 - 학생 매칭 선발</span><span class="dd">기업 - 학생 면접을 통해 최종 선발</span></li>
+    <li><span class="tt">3자 협약서 체결</span><span class="dd">대학 - 기업 - 학생 3자 간 협약서 서명 완료</span></li>
+    <li><span class="tt">실습 기간 운영</span><span class="dd">예: 2학기 현장실습학기제 9월 1일 ~ 12월 31일 (4개월)</span></li>
+    <li><span class="tt">출근부 · 평가표 · 만족도 조사 · 급여 내역서 제출</span><span class="dd">실습 종료 후 현장실습지원센터 제출 / 급여 내역서: intern@inu.ac.kr</span></li>
+    <li><span class="tt">기업지원금 지급</span><span class="dd">성적처리 이후 한 달 내 등록된 계좌로 자동 지급</span></li>
+  </ol>
+</div>
+</section>
+
+<!-- ===================== 중간점검 ===================== -->
+<section class="page" id="pg-check">
+<div class="wrap">
+  <div class="page-title">중간점검</div>
+
+
+  <h2 class="sec">점검 절차</h2>
+  <div class="box">
+    <ul>
+      <li><b>신규 기업 사전 점검</b> — 운영 전 서면 또는 현장점검 실시 (화학물 · 유해물질 · 제조생산 사업장은 반드시 현장점검)</li>
+      <li><b>중간 점검</b> — 실습 진행 중 교육부 매뉴얼에 따라 참여 학생 대상 중간점검 실시</li>
+      <li><b>수시 점검</b> — 필요한 경우 학생 및 실습기관 대상 추가 점검 가능</li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<!-- ===================== 유의사항/보험/출결 ===================== -->
+<section class="page" id="pg-caution">
+<div class="wrap">
+  <div class="page-title">유의사항 · 산재보험 · 출결 관리</div>
+  
+
+  <h2 class="sec">실습기관 요건</h2>
+  <div class="grid2">
+    <div class="box">
+      <h3>참여 요건</h3>
+      <ul>
+        <li>현장실습학기제 취지와 목적에 부합하는 운영계획 보유</li>
+        <li>실습생에 대한 산재보험 가입 가능</li>
+        <li>학생의 보건 · 위생 및 안전 보장 가능</li>
+        <li>실습에 필요한 시설 · 설비 · 물품 구비 및 제공 가능</li>
+        <li>전공 관련 직무수행 기회 부여 및 교육 · 지도 가능</li>
+        <li>현장교육담당자(멘토) 필수 배정</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3 style="color:#b03a2e">참여 불가 기관</h3>
+      <ul>
+        <li>학생 개인이 섭외한 기관</li>
+        <li>산재보험 가입이 불가능한 기관 (거주지가 동일한 친족의 기업 등)</li>
+        <li>현장교육담당자 배치 및 교육 시간 배정이 불가능한 기관</li>
+        <li>실습기관과 학생 간 취업 · 근로 · 인턴 · 아르바이트 등을 실시하고 있거나 확정된 경우</li>
+      </ul>
+    </div>
+  </div>
+  <p class="note">※ 부실 기업 · 블랙 기업 등 학생의 안전 보장 및 급여 지급에 제한이 있는 경우 현장실습생 모집이 제한될 수 있습니다.</p>
+
+  <h2 class="sec">산재보험 가입 안내</h2>
+  <div class="grid2">
+    <div>
+      <div class="formula" style="margin-bottom:14px">
+        <span class="lb">현장실습생 산재보험 코드</span>
+        부호 52 + 사유코드 03
+        
+      </div>
+      <ul class="note">
+        <li>실습 시작 1주일 이내에 산재보험가입증명서를 현장실습지원센터(intern@inu.ac.kr)에 제출해야 합니다.</li>
+        <li>보수액 산정이 어려운 경우 고용노동부장관 고시 금액으로 월 평균보수 산정이 가능합니다.</li>
+      </ul>
+    </div>
+    <div>
+      <table>
+        <thead><tr><th>부호</th><th>코드</th><th>대상</th><th>산재</th><th>고용</th></tr></thead>
+        <tbody>
+        
+          <tr class="hl"><td>52</td><td>03</td><td>현장실습생</td><td>O</td><td>X</td></tr>
+        </tbody>
+      </table>
+      <ul class="note">
+        <li>현장실습생은 산재보험만 가입 / 고용보험 대상 아님</li>
+        <li>실업급여 · 취업촉진수당 등 부과구분 불가</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="sec">출석관리 및 실습생 휴일 보장</h2>
+  <div class="grid2">
+    <div>
+      <table>
+        <thead><tr><th style="width:90px">구분</th><th>내용</th></tr></thead>
+        <tbody>
+          <tr><td class="strong">출석</td><td class="l">실습이 실시된 날 (지각 포함)</td></tr>
+          <tr><td class="strong">결석</td><td class="l">출석일자에 학생이 나오지 않은 경우</td></tr>
+          <tr><td class="strong">휴일</td><td class="l">(공)휴일 및 실습기관의 휴무일</td></tr>
+        </tbody>
+      </table>
+      <p class="note">휴무 예시 — 법정공휴일 · 참정권 행사일 · 예비군훈련일 · 경조사 · 사업장 휴무일</p>
+    </div>
+    <div>
+      <table>
+        <tbody class="th-row">
+          <tr><td style="width:140px">1주일 기준</td><td class="l">1일 휴일 보장</td></tr>
+          <tr><td>1개월 이상</td><td class="l">추가 1일 휴일 보장</td></tr>
+          <tr><td>모든 휴일</td><td class="l">유급휴일 처리 (공휴일 포함)</td></tr>
+        </tbody>
+      </table>
+      
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ===================== 학과 직무분야 ===================== -->
+<section class="page" id="pg-majors">
+<div class="wrap">
+  <div class="page-title">단과대별 학과 직무분야</div>
+  
+  <div class="grid2" id="majors"></div>
+</div>
+</section>
+
+<!-- ===================== 문의 ===================== -->
+<section class="page" id="pg-contact">
+<div class="wrap">
+  <div class="page-title">참여 문의 및 신청 안내</div>
+  <div class="page-desc">현장실습학기제 참여를 희망하시는 기업은 아래 연락처로 문의해 주시기 바랍니다.</div>
+  <div class="contact-grid">
+    <div class="cell"><span class="k">이메일</span><span class="v">intern@inu.ac.kr</span></div>
+    <div class="cell"><span class="k">전화</span><span class="v">032-835-9429, 9619</span></div>
+    <a class="cell" href="https://intern.inu.ac.kr" target="_blank" rel="noopener" style="display:block"><span class="k">웹사이트</span><span class="v">intern.inu.ac.kr</span></a>
+    <div class="cell"><span class="k">위치</span><span class="v">17호관 211호</span></div>
+  </div>
+  <p class="note" style="margin-top:20px">인천대학교 현장실습지원센터</p>
+</div>
+</section>
+
+<footer>인천대학교 현장실습지원센터 | © 2026 Incheon National University</footer>
+
+<button id="toTop" aria-label="맨 위로"></button>
+
+<script>
+// ---- 탭 앵커 스크롤 ----
+const toTop = document.getElementById('toTop');
+const tabs = [...document.querySelectorAll('.tab')];
+const nav = document.querySelector('nav');
+
+tabs.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = document.getElementById(btn.dataset.page);
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+// ---- 스크롤스파이 (현재 섹션에 맞춰 탭 활성화) ----
+// 탭 순서와 섹션의 실제 세로 위치가 다를 수 있으므로 offsetTop 기준으로 정렬
+const spyList = tabs
+  .map((t, i) => ({ tabIndex: i, sec: document.getElementById(t.dataset.page) }))
+  .filter(o => o.sec)
+  .sort((a, b) => a.sec.offsetTop - b.sec.offsetTop);
+
+function setActive(idx) {
+  tabs.forEach((t, i) => t.classList.toggle('active', i === idx));
+  const at = tabs[idx];
+  if (at) {
+    const nr = nav.getBoundingClientRect(), ar = at.getBoundingClientRect();
+    if (ar.left < nr.left || ar.right > nr.right) {
+      at.scrollIntoView({ inline: 'center', block: 'nearest' });
+    }
+  }
+}
+let ticking = false;
+function onScroll() {
+  if (ticking) return;
+  ticking = true;
+  requestAnimationFrame(() => {
+    const offset = 160; // sticky 헤더+탭 + scroll-margin 보정
+    let curTab = spyList.length ? spyList[0].tabIndex : 0;
+    spyList.forEach(o => {
+      if (o.sec.getBoundingClientRect().top - offset <= 0) curTab = o.tabIndex;
+    });
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 4) {
+      curTab = spyList[spyList.length - 1].tabIndex;
+    }
+    setActive(curTab);
+    toTop.classList.toggle('show', window.scrollY > 400);
+    ticking = false;
+  });
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+window.addEventListener('load', onScroll);
+
+// ---- 맨 위로 ----
+toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+// ---- 학과 직무분야 데이터 ----
+const COLLEGES = [
+  ["인문대학", [
+    ["국어국문학과","콘텐츠 기획 · 카피라이팅 · 출판 · 편집"],
+    ["영어영문학과","영문 번역 · 통역 · 글로벌 비즈니스 커뮤니케이션"],
+    ["독어독문학과","독일어 번역 · 통역 · 유럽 시장 자료 작성"],
+    ["불어불문학과","프랑스어 번역 · 통역 · 프랑스어권 비즈니스 지원"],
+    ["일본지역문화학과","일본어 번역 · 통역 · 일본 시장 조사"],
+    ["중어중국학과","중국어 번역 · 통역 · 중국 시장 조사"]
+  ]],
+  ["자연과학대학", [
+    ["수학과","데이터 통계 분석 · 수치 모델링"],
+    ["물리학과","계측 · 분석 장비 운용 · R&D 실험 보조"],
+    ["화학과","화학물질 분석 · 품질검사 · R&D 보조"],
+    ["패션산업학과","소비 트렌드 분석 · 패션 MD · VMD"],
+    ["해양학과","해양환경 조사 · 환경데이터 분석"]
+  ]],
+  ["사회과학대학", [
+    ["사회복지학과","복지 프로그램 기획 · 운영 · 사례관리 보조"],
+    ["미디어커뮤니케이션학과","영상 촬영 · 편집 · SNS · PR 콘텐츠 제작"],
+    ["문헌정보학과","정보 분류 · 검색 · 데이터 관리"],
+    ["창의인재개발학과","사내 교육 기획 · 운영 · HRD 프로그램 개발"]
+  ]],
+  ["글로벌정경대학", [
+    ["행정학과","공공정책 분석 · 행정 보고서 작성"],
+    ["정치외교학과","국제 동향 리서치 · 국제회의 운영 보조"],
+    ["경제학과","경제 데이터 분석 · 시장조사 보고서 작성"],
+    ["무역학부","수출입 실무 · 해외 시장 조사 · 통관 보조"],
+    ["소비자학과","소비 트렌드 분석 · 마케팅 리서치 · CS 기획"]
+  ]],
+  ["공과대학", [
+    ["기계공학과","기계 설계(CAD) · 생산공정 · 품질관리"],
+    ["전기공학과","전기 설비 설계 · 전력계통 분석"],
+    ["전자공학과","회로 설계 · 펌웨어 개발 · IoT 기기 테스트"],
+    ["산업경영공학과","공정 개선 · SCM 분석 · ERP 운영"],
+    ["신소재공학과","소재 분석 · 평가 · 반도체 · 배터리 R&D"],
+    ["안전공학과","안전 점검 · 위험성 평가 · 법규 검토"],
+    ["에너지화학공학과","화학공정 분석 · 에너지 · 배터리 R&D"],
+    ["바이오-로봇 시스템 공학과","로봇 시스템 테스트 · 자동화 프로그래밍"]
+  ]],
+  ["정보기술대학", [
+    ["컴퓨터공학부","SW 개발(웹 · 앱 · 백엔드) · AI · ML 모델 개발"],
+    ["정보통신공학과","네트워크 운용 · IoT 구축 · 보안 솔루션 테스트"],
+    ["임베디드시스템공학과","펌웨어 개발 · 임베디드 시스템 테스트"]
+  ]],
+  ["경영대학", [
+    ["경영학부","경영기획 · 마케팅 기획 · 인사 · 재무 행정"],
+    ["데이터과학과","빅데이터 분석 · ML 개발 보조 · BI 대시보드"],
+    ["세무회계학과","회계 실무 · 세무신고 보조 · 재무제표 분석"]
+  ]],
+  ["예술체육대학", [
+    ["한국화전공","전시 기획 · 운영 · 문화콘텐츠 제작"],
+    ["서양화전공","시각 콘텐츠 제작 · 아트 디렉팅 보조"],
+    ["디자인학부","UI/UX · 브랜드 · 광고 디자인 · 영상 그래픽"],
+    ["공연예술학과","공연 · 행사 기획 · 홍보 운영"],
+    ["스포츠과학부","스포츠 코칭 보조 · 경기 데이터 분석"],
+    ["운동건강학부","운동처방 보조 · 건강증진 프로그램 운영"]
+  ]],
+  ["도시과학대학", [
+    ["도시행정학과","도시정책 분석 · 공공사업 기획 보조"],
+    ["건설환경공학","공정 관리 보조 · 토목 설계 · 측량"],
+    ["환경공학","오염 모니터링 · 환경영향평가 보조"],
+    ["도시공학과","GIS 분석 · 교통조사 · 스마트시티 보조"],
+    ["건축공학","BIM · CAD 설계 보조 · 건설 공정 관리"],
+    ["도시건축학","건축 설계 · 기획 · 도시경관 분석"]
+  ]],
+  ["생명과학기술대학", [
+    ["생명과학부(생명과학전공)","생물 실험 보조 · 바이오 R&D · QC 분석"],
+    ["생명과학부(분자의생명전공)","유전자 · 단백질 분석 · 의약품 R&D"],
+    ["생명공학부(생명공학전공)","바이오 공정 보조 · 식품 · 의약품 품질관리"],
+    ["생명공학부(나노바이오공학전공)","나노소재 분석 · 바이오센서 · 의료기기 개발"]
+  ]],
+  ["동북아국제통상물류학부", [
+    ["동북아국제통상전공","무역 실무 · 동북아 시장 조사 · 통상 자료 작성"],
+    ["스마트물류공학전공","물류 시스템 운영 · 창고 · 재고 관리 · 경로 최적화"],
+    ["IBE전공","영어 기반 국제 비즈니스 · 글로벌 마케팅"]
+  ]],
+  ["법학부", [
+    ["법학부","법률 문서 검토 · 기업 법무 지원 · 컴플라이언스 보조"]
+  ]]
+];
+
+const wrap = document.getElementById('majors');
+COLLEGES.forEach(([name, majors]) => {
+  const div = document.createElement('div');
+  div.className = 'college';
+  div.innerHTML = '<h3>' + name + '</h3><table><tbody>' +
+    majors.map(m => '<tr><td>' + m[0] + '</td><td class="l">' + m[1] + '</td></tr>').join('') +
+    '</tbody></table>';
+  wrap.appendChild(div);
+});
+</script>
+</body>
+</html>
