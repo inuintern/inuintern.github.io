@@ -225,7 +225,10 @@ ul,ol{margin:0;padding:0;list-style:none;}
 .dlg__x{position:absolute;right:14px;top:12px;width:40px;height:40px;border:0;border-radius:50%;background:var(--tint);color:var(--ink);font-size:1.4rem;line-height:1;cursor:pointer;}
 .dlg h3{padding-right:44px;font-size:1.3rem;font-weight:700;}
 .dlg__chip{display:inline-block;margin-top:8px;padding:3px 12px;border-radius:999px;font-size:.82rem;font-weight:700;background:var(--tint);color:var(--muted);}
-.dlg__dates{margin:12px 0 0;font-size:.92rem;line-height:1.7;color:var(--muted);}
+.dlg__dates{margin:14px 0 0;display:grid;gap:8px;}
+.dlg__row{display:flex;align-items:baseline;gap:14px;padding:10px 14px;border-radius:12px;background:var(--tint);}
+.dlg__row b{flex:0 0 5.2em;font-size:1rem;font-weight:700;color:var(--brand);}
+.dlg__row span{font-size:1.1rem;font-weight:700;color:var(--ink);letter-spacing:-.01em;}
 .dlg__img{margin-top:16px;}
 .dlg__img img{display:block;width:100%;height:auto;border-radius:14px;}
 .dlg__none{padding:28px 16px;border-radius:14px;background:var(--tint);text-align:center;color:var(--muted);font-size:.92rem;}
@@ -704,7 +707,7 @@ ul,ol{margin:0;padding:0;list-style:none;}
   </div>
 </div>
 
-<dialog id="poster-dlg" class="dlg" aria-labelledby="dlg-title"><div class="dlg__in"><button type="button" class="dlg__x" aria-label="닫기">×</button><h3 id="dlg-title"></h3><span class="dlg__chip" id="dlg-chip"></span><p class="dlg__dates" id="dlg-dates"></p><div class="dlg__img" id="dlg-img"></div></div></dialog>
+<dialog id="poster-dlg" class="dlg" aria-labelledby="dlg-title"><div class="dlg__in"><button type="button" class="dlg__x" aria-label="닫기">×</button><h3 id="dlg-title"></h3><span class="dlg__chip" id="dlg-chip"></span><div class="dlg__dates" id="dlg-dates"></div><div class="dlg__img" id="dlg-img"></div></div></dialog>
 
 <script>
 (function(){
@@ -826,7 +829,8 @@ ul,ol{margin:0;padding:0;list-style:none;}
     var dlg=document.getElementById('poster-dlg'),img=document.getElementById('dlg-img'),ok=/^[\w\-\/.]+\.(png|jpe?g|webp|gif)$/i.test(t.poster)&&t.poster.indexOf('..')<0;
     document.getElementById('dlg-title').textContent=t.name;
     document.getElementById('dlg-chip').textContent=st.label;
-    var dd=document.getElementById('dlg-dates');dd.style.whiteSpace='pre-line';dd.textContent='학생 모집 '+rng(t.s)+'\n기업 모집 '+rng(t.c)+'\n실습 '+md(t.ps)+' ~ '+md(t.pe);
+    var dd=document.getElementById('dlg-dates');dd.textContent='';
+    [['기업 모집',rng(t.c)],['학생 모집',rng(t.s)],['실습 기간',md(t.ps)+' ~ '+md(t.pe)]].forEach(function(x){var r=document.createElement('div'),l=document.createElement('b'),v=document.createElement('span');r.className='dlg__row';l.textContent=x[0];v.textContent=x[1];r.appendChild(l);r.appendChild(v);dd.appendChild(r);});
     img.textContent='';
     function none(){img.textContent='';var n=document.createElement('div');n.className='dlg__none';n.textContent='안내 포스터를 준비 중입니다.';img.appendChild(n);}
     if(ok){var im=new Image();im.alt=t.name+' 안내 포스터';im.onerror=none;im.src=t.poster;img.appendChild(im);}else none();
