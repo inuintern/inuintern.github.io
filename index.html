@@ -338,19 +338,18 @@ ul,ol{margin:0;padding:0;list-style:none;}
 
 /* ───────── 입구: 사계절 사진 슬라이드 ───────── */
 .ss{position:absolute;inset:0;z-index:-2;overflow:hidden}
-.ss__s{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transform:scale(1.07);transition:opacity 1.3s ease}
+.ss__s{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.3s ease}
 .ss__s:nth-child(1){background-image:var(--ph1)}
 .ss__s:nth-child(2){background-image:var(--ph2)}
 .ss__s:nth-child(3){background-image:var(--ph3)}
 .ss__s:nth-child(4){background-image:var(--ph4)}
-.ss__s.on{opacity:1;animation:ssz 9s ease-out forwards}
-@keyframes ssz{from{transform:scale(1.07)}to{transform:scale(1)}}
+.ss__s.on{opacity:1}
 .ehero{position:relative;isolation:isolate;overflow:hidden;color:#fff;background:#0a3a78;height:clamp(640px,94vh,860px);margin-left:calc(-1*var(--gutter-l));margin-right:calc(-1*var(--gutter-r));padding-inline:max(var(--gutter-l),var(--gutter-r))}
 .ehero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(0,0,0,.42) 0%,rgba(0,0,0,.22) 40%,rgba(0,0,0,0) 70%)}
 .ehero__in{position:relative;max-width:1080px;height:100%;margin-inline:auto;display:flex;flex-direction:column}
 .ehero__top{padding-top:24px}
 .ehero .pill{display:inline-flex;align-items:center;gap:12px;padding:0;background:none;color:#fff;font-size:.95rem;font-weight:700;text-shadow:0 1px 4px rgba(0,0,0,.55),0 2px 16px rgba(0,0,0,.45)}
-.ehero .pill .logo{height:32px;width:auto;filter:brightness(0) invert(1) drop-shadow(0 1px 4px rgba(0,0,0,.5))}
+.ehero .pill .logo{height:32px;width:auto}
 .ehero__txt{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding-block:24px}
 .ehero h1{font-size:clamp(2.2rem,6vw,3.8rem);font-weight:700;line-height:1.18;letter-spacing:-.04em;color:#fff;text-shadow:0 2px 6px rgba(0,0,0,.45),0 4px 28px rgba(0,0,0,.45)}
 .ehero__lede{margin-top:18px;font-size:1.02rem;color:#fff;font-weight:500;text-shadow:0 1px 4px rgba(0,0,0,.6),0 2px 18px rgba(0,0,0,.5)}
@@ -416,6 +415,17 @@ body{line-height:1.65;letter-spacing:-.012em}
 }
 @media(min-width:861px){.nav__links button{padding:8px 10px;font-size:.84rem}.nav__name{font-size:.82rem;margin-right:6px}}
 @media(max-width:1240px){.nav__name{display:none}}
+
+/* 사진은 고정, 글씨만 차례로 나타남 */
+@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+.ehero__top,.ehero h1,.ehero__lede,.ehero .hero-actions,.ehero__cards,.ehero__ctl,.shero h1,.shero .panel__lede,.shero__btns{opacity:0;animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards}
+.ehero__top{animation-delay:.1s}
+.ehero h1,.shero h1{animation-delay:.3s}
+.ehero__lede,.shero .panel__lede{animation-delay:.6s}
+.ehero .hero-actions,.shero__btns{animation-delay:.85s}
+.ehero__cards{animation-delay:1.1s}
+.ehero__ctl{animation-delay:1.3s}
+@media(prefers-reduced-motion:reduce){.ehero__top,.ehero h1,.ehero__lede,.ehero .hero-actions,.ehero__cards,.ehero__ctl,.shero h1,.shero .panel__lede,.shero__btns{opacity:1;animation:none}}
 </style>
 
 <div class="stripe bleed"></div>
