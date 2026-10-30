@@ -1244,7 +1244,7 @@ body:has(#view-entry:not([hidden])) .stripe{display:none}
     panels.forEach(function(p){p.hidden=p.getAttribute('data-co')!==slug;});
     cos.forEach(function(c){c.classList.toggle('on',c.getAttribute('data-co')===slug);});
     if(scroll){var l=document.getElementById('r-list');if(l)l.scrollIntoView({behavior:'smooth',block:'start'});}
-    try{history.replaceState(null,'','#review-'+slug);}catch(e){}
+    if(scroll){try{history.replaceState(null,'','#review-'+slug);}catch(e){}}
   }
   cos.forEach(function(c){c.addEventListener('click',function(){pick(c.getAttribute('data-co'),true);});});
   v.querySelectorAll('.rv-dept').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var t=document.getElementById('rv-'+a.getAttribute('data-goto'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'});});});
