@@ -941,7 +941,7 @@ body:has(#view-entry:not([hidden])) .stripe{display:none}
 </nav>
 <section aria-label="대학생 첫경력 프로젝트 소개" class="shero project-hero">
 <div aria-hidden="true" class="ss"><span class="ss__s on"></span><span class="ss__s"></span><span class="ss__s"></span><span class="ss__s"></span></div>
-<div class="shero__in"><span class="project-tag">현장실습학기제 참여 지원 · 2027년 추진계획(안)</span><h1>대학생 첫경력 프로젝트</h1><p class="panel__lede"><span class="project-sentence">기존 현장실습학기제 안에서 학생과 실습기관의 참여를 지원하는 사업입니다.</span><span class="project-sentence">전공 관련 직무경험과 학점 인정에 실습지원비 지원을 더합니다.</span></p><div class="shero__btns"><button class="btn btn--white" data-scroll="p-about" type="button">사업 소개 보기 ↓</button><button class="btn btn--outline" data-view="entry" type="button">통합 안내로 돌아가기</button></div><p class="project-hero-note">교육부 사업설명자료 및 리플렛을 바탕으로 작성한 사전 안내입니다.</p></div>
+<div class="shero__in"><span class="project-tag">현장실습학기제 참여 지원 · 2027년 추진계획(안)</span><p class="project-launch-notice">2027학년도 1학기부터 시행 예정인 교육부 신규사업입니다.</p><h1>대학생 첫경력 프로젝트</h1><p class="panel__lede"><span class="project-sentence">기존 현장실습학기제 안에서 학생과 실습기관의 참여를 지원하는 사업입니다.</span><span class="project-sentence">전공 관련 직무경험과 학점 인정에 실습지원비 지원을 더합니다.</span></p><div class="shero__btns"><button class="btn btn--white" data-scroll="p-about" type="button">사업 소개 보기 ↓</button><button class="btn btn--outline" data-view="entry" type="button">통합 안내로 돌아가기</button></div><p class="project-hero-note">교육부 사업설명자료 및 리플렛을 바탕으로 작성한 사전 안내입니다.</p></div>
 </section>
 <div class="sheet project-sheet"><div class="wrap">
 <div class="project-alert"><strong>사업 추진계획(안)에 따른 안내입니다.</strong><p>지원규모·내용·일정은 예산 확정 및 사업계획 수립 과정에서 변경될 수 있습니다.</p><p>인천대학교의 참여 여부와 교내 모집 일정·신청 방법은 별도 공지로 확인해 주세요.</p></div>
@@ -1438,4 +1438,8 @@ body:has(#view-entry:not([hidden])) .stripe{display:none}
 @media(max-width:900px){#view-review .rv-cos{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:640px){#view-review .rv-cos{grid-template-columns:repeat(2,minmax(0,1fr))}#view-review .rv-body p,#view-review .rv-body ul li{font-size:15.5px}#view-review .rv-sum h3{font-size:21px}}
 </style>
-<style>@media(min-width:701px){.acard[data-view="project"] .acard__t{font-size:.93rem}}</style></head></html>
+<style></style><style>
+/* 첫경력 프로젝트 첫 화면: 시행 시기 사전 안내 */
+#view-project .project-launch-notice{display:block;color:#fff;font-family:var(--font);font-size:18px;font-weight:700;line-height:1.7;letter-spacing:-.02em;margin:0 0 16px;text-shadow:0 1px 4px rgba(0,0,0,.65),0 2px 18px rgba(0,0,0,.5);word-break:keep-all}
+@media(max-width:520px){#view-project .project-launch-notice{font-size:16px;margin-bottom:13px}}
+</style></head></html>
