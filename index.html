@@ -14,7 +14,7 @@
 
 /* ───────── 1. 토큰 ───────── */
 :root{
-  --bg:#ffffff; --tint:#f1f6fd; --card:#ffffff; --ink:#121c2d; --muted:#586a84; --line:#dbe5f3;
+  --bg:#ffffff; --tint:#f1f6fd; --card:#ffffff; --ink:#121c2d; --muted:#34445b; --line:#dbe5f3;
   --brand:#0a4a9b; --on-brand:#ffffff; --sky:#56b4f0; --sky-soft:#d9ecfb; --sun:#f5b417;
   --panel:#0a4a9b; --on-panel:#ffffff; --on-panel-muted:#c3d8f2;
   --shadow:0 10px 30px rgba(10,74,155,.10);
@@ -886,7 +886,7 @@ body:has(#view-entry:not([hidden])) .stripe{display:none}
 <ul>
 <li>현장실습학기제 취지와 목적에 부합하는 운영계획 보유</li>
 <li class="li--key"><strong>「산업재해보상보험법」 제123조 및 「대학생 현장실습학기제 운영규정」 제18조에 따른 실습생 산재보험 필수 가입</strong></li>
-<li>상시근로자 5인 이상 기업(권장)<br/><span class="copy-sentence" style="display:block;margin-top:6px;color:#455b78;font-size:.92em;line-height:1.65;">※ 5인 미만 기업도 참여 가능하나, 실습생 산재보험 가입은 필수이며 「근로기준법」의 관련 적용 기준과 「대학생 현장실습학기제 운영규정」에 따른 실습시간·휴게시간·유급휴일 등 운영 요건을 충족해야 합니다.</span></li>
+<li>상시근로자 5인 이상 기업(권장)<br/><span class="copy-sentence" style="display:block;margin-top:6px;color:#202e42;font-size:.96em;line-height:1.65;">※ 5인 미만 기업도 참여 가능하나, 실습생 산재보험 가입은 필수이며 「근로기준법」의 관련 적용 기준과 「대학생 현장실습학기제 운영규정」에 따른 실습시간·휴게시간·유급휴일 등 운영 요건을 충족해야 합니다.</span></li>
 <li>학생의 보건 · 위생 및 안전 보장</li>
 <li>실습에 필요한 시설 · 설비 · 물품 구비 및 제공</li>
 <li>전공 관련 직무수행 기회 부여 및 교육 · 지도</li>
@@ -1449,4 +1449,13 @@ body:has(#view-entry:not([hidden])) .stripe{display:none}
 .sec__sub{max-width:none}
 #view-student .shero .panel__lede,#view-company .shero .panel__lede{max-width:none}
 p .copy-sentence{display:inline-block;max-width:100%;white-space:normal;word-break:keep-all;overflow-wrap:break-word;text-wrap:initial}
-</style></head></html>
+</style>
+<style id="readability-contrast-update">
+/* 학생·기업 안내: 흰색 및 옅은 배경 위의 설명문 대비 강화 */
+#view-student .note, #view-company .note,
+#view-student .sec__sub, #view-company .sec__sub,
+#view-student .flow__ext, #view-company .flow__ext { color:#34445b; }
+#view-student .req__card li, #view-company .req__card li { color:#172438; }
+#view-company .req__card .copy-sentence[style] { color:#202e42 !important; }
+</style>
+</head></html>
