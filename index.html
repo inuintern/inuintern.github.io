@@ -854,6 +854,30 @@ a,button{-webkit-tap-highlight-color:transparent;}
   #view-entry .hero .hstat { background:rgba(255,255,255,.84); }
 }
 
+/* === 입구 안내 박스: 반투명 유지 + 글자 또렷하게 (배경 진하기·블러 보강, 글자 진하게) === */
+#view-entry .panels .panel .panel__cap {
+  background: rgba(240,247,255,.72);
+  background: color-mix(in srgb,var(--b2) 30%,#fff 70%);
+  background: color-mix(in srgb,color-mix(in srgb,var(--b2) 30%,#fff 70%) 74%,transparent);
+  -webkit-backdrop-filter: blur(22px) saturate(120%);
+  backdrop-filter: blur(22px) saturate(120%);
+}
+#view-entry .panels .p4 .panel__cap,
+#view-entry .panels .p5 .panel__cap {
+  background: color-mix(in srgb,var(--b2) 78%,transparent);
+}
+#view-entry .panels .panel__cap h3 { font-weight:800; }
+#view-entry .panels .panel__cap .sub,
+#view-entry .panels .panel__cap li,
+#view-entry .panels .panel__cap .note { opacity:1; }
+#view-entry .panels .panel__cap li { font-weight:600; }
+#view-entry .panels .panel__cap .note { color:inherit !important; opacity:.92; }
+#view-entry .panels .p1 .panel__cap,
+#view-entry .panels .p2 .panel__cap,
+#view-entry .panels .p3 .panel__cap { color:#0b2142; text-shadow:0 0 8px rgba(255,255,255,.85); }
+#view-entry .panels .p4 .panel__cap,
+#view-entry .panels .p5 .panel__cap { text-shadow:0 1px 6px rgba(10,30,60,.55); }
+
 /* === 첫경력 프로젝트 깃발 든 횃불이 시각적 크기 보정 (다른 페이지는 유지) === */
 #view-project .shero__art{
   width:440px;
@@ -963,7 +987,7 @@ a,button{-webkit-tap-highlight-color:transparent;}
 <ul>
 <li>2027학년도 1학기부터 시행 예정인 사업입니다.</li>
 <li>미취업 3~4학년이 4~6개월 장기 실습에 참여할 예정입니다.</li>
-<li>기업이 최저임금 100% 이상 지급하면 50%를 사후 지원합니다.</li>
+<li>기업이 최저임금 100% 이상 지급하면 50%를 환급합니다.</li>
 </ul>
 <p class="note">교육부 계획(안) 기준이며 변경될 수 있습니다.</p>
 <span class="more">프로젝트 보기 →</span>
@@ -1396,13 +1420,13 @@ a,button{-webkit-tap-highlight-color:transparent;}
 
 <section class="project-section" id="p-about"><div class="sec__head"><h2>대학생 첫경력 프로젝트란?</h2></div><div class="sec__body"><div class="project-box"><p><span class="copy-sentence">대학생 첫경력 프로젝트는 기존 현장실습학기제 안에서 학생과 실습기관의 참여를 지원하는 교육부 사업입니다.</span></p><p><span class="copy-sentence">현장실습학기제의 명칭이나 기본 운영방식은 유지되며, 별도의 실습제도로 운영되는 것은 아닙니다.</span></p><p><span class="copy-sentence">기존 현장실습학기제의 교육과정과 학점 인정 체계를 바탕으로, 사업 참여 요건에 따라 실습지원비와 참여비용 등을 지원합니다.</span></p><div class="project-keywords"><span>전공 관련 직무경험</span><span>교육과정 연계·학점 인정</span><span>실습지원비 지원</span></div></div></div></section>
 <section class="project-section" id="p-eligibility"><div class="sec__head"><h2>참여 대상 및 운영</h2></div><div class="sec__body"><div class="project-box project-rows">
-<div><h3>참여 대상</h3><div><p><span class="copy-sentence">인천대학교는 미취업 3~4학년 재학생을 대상으로 운영할 예정입니다.</span></p><p class="project-small"><span class="copy-sentence">산업체 위탁·재직자 특별전형 등 재직 중인 재학생은 제외합니다.</span></p><p class="project-small"><span class="copy-sentence">세부 참여 요건과 모집 일정은 추후 교내 안내를 통해 공지합니다.</span></p></div></div>
+<div><h3>참여 대상</h3><div><p><span class="copy-sentence">인천대학교는 미취업 3~4학년 재학생을 대상으로 운영할 예정입니다.</span></p><p class="project-small"><span class="copy-sentence">산업체 위탁·재직자 특별전형 등 재직 중인 재학생은 제외합니다.</span></p><p class="project-small"><span class="copy-sentence">정규학기와 방학/학기 연계과정으로만 진행되므로 휴학생은 참여할 수 없습니다.</span></p><p class="project-small"><span class="copy-sentence">세부 참여 요건과 모집 일정은 추후 교내 안내를 통해 공지합니다.</span></p></div></div>
 <div><h3>실습 직무</h3><div><p><span class="copy-sentence">실제 수행할 업무와 교육계획을 기준으로 학생의 전공 관련성을 대학이 확인합니다.</span></p></div></div>
 <div><h3>운영 기간</h3><div><p><span class="copy-sentence">인천대학교는 4~6개월 장기현장실습만 운영합니다.</span></p><p><span class="copy-sentence">정규학기와 방학/학기 연계과정으로 참여 가능합니다.</span></p></div></div>
 <div><h3>학점 인정</h3><div><p><span class="copy-sentence">소속 대학의 교과목 편성 및 학칙에 따라 인정합니다.</span></p></div></div>
 <div><h3>사업 기간</h3><div><p><span class="copy-sentence">2027 ~ 2029</span></p><p class="project-small"><span class="copy-sentence">추후 연장 예정</span></p></div></div></div></div></section>
 <section class="project-section" id="p-support"><div class="sec__head"><h2>지원 내용</h2><p class="project-caption"><span class="copy-sentence">아래 금액은 사업설명자료와 리플렛에 제시된 계획(안) 기준입니다.</span></p></div><div class="sec__body"><div class="project-box project-rows">
-<div><h3>실습지원비</h3><div><p class="project-amount">최저임금 100% 이상 지급 시 50% 사후 지원</p><p><span class="copy-sentence">기업이 학생에게 최저임금의 100% 이상을 실습지원비로 먼저 지급하면, 실습 종료 후 50%를 정부 지원금으로 지원받습니다.</span></p><p><span class="copy-sentence">정부 지원액은 학생 1인당 월 약 115만원 수준입니다.</span></p><p class="project-small"><span class="copy-sentence">정부 지원금은 학생에게 추가로 지급하는 금액이 아니라 기업에 사후 지급하는 지원금입니다.</span></p></div></div>
+<div><h3>실습지원비</h3><div><p class="project-amount">최저임금 100% 이상 지급 시 50% 환급</p><p><span class="copy-sentence">기업이 학생에게 최저임금의 100% 이상을 실습지원비로 먼저 지급하면, 실습 종료 후 50%를 정부 지원금으로 지원받습니다.</span></p><p><span class="copy-sentence">정부 지원액은 학생 1인당 월 약 115만원 수준입니다.</span></p></div></div>
 <div><h3>참여비용</h3><div><p class="project-amount">학생 1인당 월 10만원</p><p><span class="copy-sentence">교통·숙박 등 실습 참여에 필요한 비용을 학생에게 지원합니다.</span></p></div></div>
 <div><h3>현장멘토링</h3><div><p class="project-amount">학생 1인당 월 10만원</p><p><span class="copy-sentence">직무교육과 근태·안전관리 등 현장멘토링을 위해 실습기관에 지원합니다.</span></p></div></div>
 </div></div></section><section class="project-section" id="p-roles"><div class="sec__head"><h2>교수님·기업 담당자 안내</h2></div><div class="sec__body"><div class="project-box project-rows"><div><h3>학과·교수님</h3><div><p><strong>학생 안내·추천</strong><br/>사업에 관심 있는 학생에게 안내하고, 전공과 역량을 고려해 추천해 주세요.</p><p><strong>참여 기업 연결</strong><br/>참여 의사가 있는 학과 협력기업을 현장실습지원센터로 연결해 주세요.</p></div></div><div><h3>기업 담당자</h3><div><p><strong>참여 가능 기관</strong><br/>일반 기업, 공공기관·공기업, 정부·지자체 및 산하기관 등.</p><p><strong>기업 지원</strong><br/>최저임금 100% 이상 선지급 시 실습 종료 후 정부 지원 50%(월 약 115만원). 현장멘토링 비용은 학생 1인당 월 10만원 지원 예정.</p></div></div></div></div></section>
