@@ -1033,13 +1033,15 @@ body:has(#view-entry:not([hidden])) .stripe{display:none}
     views.project.hidden=name!=='project';
     if(views.review)views.review.hidden=name!=='review';
     window.scrollTo(0,0);
-    if(remember){try{history.replaceState(null,'',name==='entry'?location.pathname+location.search:'#'+name);}catch(e){}}
+    if(remember){try{var u=name==='entry'?location.pathname+location.search:'#'+name;if(u!==location.pathname+location.search+location.hash&&!(name==='entry'&&!location.hash))history.pushState(null,'',u);}catch(e){}}
   }
+  function fromHash(){var h=location.hash;return h==='#student'?'student':h==='#company'?'company':h==='#project'?'project':h.indexOf('#review')===0?'review':'entry';}
+  window.addEventListener('popstate',function(){show(fromHash(),false);if(window.__reviewPick&&location.hash.indexOf('#review-')===0)window.__reviewPick(location.hash.slice(8).split('-')[0],false);});
   document.querySelectorAll('[data-view]').forEach(function(b){b.addEventListener('click',function(){show(b.dataset.view,true);});});
   document.querySelectorAll('[data-scroll]').forEach(function(b){b.addEventListener('click',function(){
     var el=document.getElementById(b.dataset.scroll);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
   });});
-  show(location.hash==='#student'?'student':location.hash==='#company'?'company':location.hash==='#project'?'project':location.hash.indexOf('#review')===0?'review':'entry',false);
+  show(fromHash(),false);
 })();
 
 (function(){
