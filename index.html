@@ -1890,16 +1890,24 @@ html{overflow-x:clip;}
   var PROCESS_CSV='https://docs.google.com/spreadsheets/d/e/2PACX-1vTuvbcI6kby0K7brDQLmJUC-YTA-pHlo9E0HFMSgKuBbBaAJ41D6XBspiS83Zz_iA/pub?gid=1376457480&single=true&output=csv';   // 구글 시트 '절차 일정' 탭을 CSV로 게시한 주소를 여기에 붙여 넣습니다. 비어 있으면 학기 일정 탭의 날짜만 사용합니다.
   var FLOW={terms:[],proc:{},pick:{student:null,company:null}};
   function dow(d){return '일월화수목금토'.charAt(d.getDay());}
-  function fd(d){return md(d)+'('+dow(d)+')';}
-  function cellText(v){var m=v.match(/^(\d{4})\s*[-./]\s*(\d{1,2})\s*[-./]\s*(\d{1,2})\.?$/),d=null;
+  function fd(d){return d.getFullYear()+'.'+(d.getMonth()+1)+'.'+d.getDate()+'('+dow(d)+')';}
+  // 절차 일정 칸에 요일이 없는 날짜가 섞여 있어도 모두 'YYYY.M.D(요)' 형식으로 맞춥니다. 이미 요일이 붙은 날짜도 연도를 붙여 같은 형식으로 바꿉니다.
+  function addDow(v,t){
+    var ref=(t&&t.s&&t.s.rs)||(t&&t.ps)||new Date(),ry=ref.getFullYear();
+    function near(m,d){var best=null,k,c;for(k=-1;k<=1;k++){c=new Date(ry+k,m-1,d);if(c.getMonth()!=m-1)continue;if(!best||Math.abs(c-ref)<Math.abs(best-ref))best=c;}return best;}
+    v=v.replace(/(^|[^\d])(\d{4})\s*[-./]\s*(\d{1,2})\s*[-./]\s*(\d{1,2})\.?(?!\d)(?:\s*\([일월화수목금토]\))?/g,function(a,p,y,m,d){var x=new Date(+y,+m-1,+d);return isNaN(x.getTime())?a:p+fd(x);});
+    v=v.replace(/(^|[^\d./])(\d{1,2})\s*[/.]\s*(\d{1,2})(?![\d./%])(?:\s*\([일월화수목금토]\))?(?![가-힣])/g,function(a,p,m,d){if(+m<1||+m>12||+d<1||+d>31)return a;var x=near(+m,+d);return x?p+fd(x):a;});
+    v=v.replace(/(\d{1,2})월\s*(\d{1,2})일(?:\s*\([일월화수목금토]\))?/g,function(a,m,d){var x=near(+m,+d);return x?fd(x):a;});
+    return v;}
+  function cellText(v,t){var m=v.match(/^(\d{4})\s*[-./]\s*(\d{1,2})\s*[-./]\s*(\d{1,2})\.?$/),d=null;
     if(m)d=new Date(+m[1],+m[2]-1,+m[3]);else{m=v.match(/^(\d{1,2})\s*\/\s*(\d{1,2})\s*\/\s*(\d{4})$/);if(m)d=new Date(+m[3],+m[1]-1,+m[2]);}
-    return d&&!isNaN(d.getTime())?'~ '+fd(d):v;}
+    return d&&!isNaN(d.getTime())?'~ '+fd(d):addDow(v,t);}
   function autoText(t,code){
-    if(code=='s1'||code=='c2')return rng(t.s);
+    if(code=='s1'||code=='c2')return fd(t.s.rs)+' ~ '+fd(t.s.re);
     if(code=='c1')return '~ '+fd(t.c.re);
-    if(code=='s6'||code=='c5')return md(t.ps)+' ~ '+md(t.pe);
+    if(code=='s6'||code=='c5')return fd(t.ps)+' ~ '+fd(t.pe);
     return '';}
-  function stepText(t,code){var row=FLOW.proc[t.name],v=row&&row[code];return v?cellText(v):autoText(t,code);}
+  function stepText(t,code){var row=FLOW.proc[t.name],v=row&&row[code];return v?cellText(v,t):autoText(t,code);}
   function pickTerm(aud){
     var now=new Date(),today=new Date(now.getFullYear(),now.getMonth(),now.getDate()),order=['open','wait','closed','run','end'],best=null,bi=9;
     FLOW.terms.forEach(function(t){var k=stateOf(t,today,aud).key,i=order.indexOf(k);if(i<bi||(i==bi&&k=='wait'&&per(t,aud).rs<per(best,aud).rs)){best=t;bi=i;}});
@@ -2143,16 +2151,24 @@ html{overflow-x:clip;}
   var PROCESS_CSV='https://docs.google.com/spreadsheets/d/e/2PACX-1vTuvbcI6kby0K7brDQLmJUC-YTA-pHlo9E0HFMSgKuBbBaAJ41D6XBspiS83Zz_iA/pub?gid=1376457480&single=true&output=csv';   // 구글 시트 '절차 일정' 탭을 CSV로 게시한 주소를 여기에 붙여 넣습니다. 비어 있으면 학기 일정 탭의 날짜만 사용합니다.
   var FLOW={terms:[],proc:{},pick:{student:null,company:null}};
   function dow(d){return '일월화수목금토'.charAt(d.getDay());}
-  function fd(d){return md(d)+'('+dow(d)+')';}
-  function cellText(v){var m=v.match(/^(\d{4})\s*[-./]\s*(\d{1,2})\s*[-./]\s*(\d{1,2})\.?$/),d=null;
+  function fd(d){return d.getFullYear()+'.'+(d.getMonth()+1)+'.'+d.getDate()+'('+dow(d)+')';}
+  // 절차 일정 칸에 요일이 없는 날짜가 섞여 있어도 모두 'YYYY.M.D(요)' 형식으로 맞춥니다. 이미 요일이 붙은 날짜도 연도를 붙여 같은 형식으로 바꿉니다.
+  function addDow(v,t){
+    var ref=(t&&t.s&&t.s.rs)||(t&&t.ps)||new Date(),ry=ref.getFullYear();
+    function near(m,d){var best=null,k,c;for(k=-1;k<=1;k++){c=new Date(ry+k,m-1,d);if(c.getMonth()!=m-1)continue;if(!best||Math.abs(c-ref)<Math.abs(best-ref))best=c;}return best;}
+    v=v.replace(/(^|[^\d])(\d{4})\s*[-./]\s*(\d{1,2})\s*[-./]\s*(\d{1,2})\.?(?!\d)(?:\s*\([일월화수목금토]\))?/g,function(a,p,y,m,d){var x=new Date(+y,+m-1,+d);return isNaN(x.getTime())?a:p+fd(x);});
+    v=v.replace(/(^|[^\d./])(\d{1,2})\s*[/.]\s*(\d{1,2})(?![\d./%])(?:\s*\([일월화수목금토]\))?(?![가-힣])/g,function(a,p,m,d){if(+m<1||+m>12||+d<1||+d>31)return a;var x=near(+m,+d);return x?p+fd(x):a;});
+    v=v.replace(/(\d{1,2})월\s*(\d{1,2})일(?:\s*\([일월화수목금토]\))?/g,function(a,m,d){var x=near(+m,+d);return x?fd(x):a;});
+    return v;}
+  function cellText(v,t){var m=v.match(/^(\d{4})\s*[-./]\s*(\d{1,2})\s*[-./]\s*(\d{1,2})\.?$/),d=null;
     if(m)d=new Date(+m[1],+m[2]-1,+m[3]);else{m=v.match(/^(\d{1,2})\s*\/\s*(\d{1,2})\s*\/\s*(\d{4})$/);if(m)d=new Date(+m[3],+m[1]-1,+m[2]);}
-    return d&&!isNaN(d.getTime())?'~ '+fd(d):v;}
+    return d&&!isNaN(d.getTime())?'~ '+fd(d):addDow(v,t);}
   function autoText(t,code){
-    if(code=='s1'||code=='c2')return rng(t.s);
+    if(code=='s1'||code=='c2')return fd(t.s.rs)+' ~ '+fd(t.s.re);
     if(code=='c1')return '~ '+fd(t.c.re);
-    if(code=='s6'||code=='c5')return md(t.ps)+' ~ '+md(t.pe);
+    if(code=='s6'||code=='c5')return fd(t.ps)+' ~ '+fd(t.pe);
     return '';}
-  function stepText(t,code){var row=FLOW.proc[t.name],v=row&&row[code];return v?cellText(v):autoText(t,code);}
+  function stepText(t,code){var row=FLOW.proc[t.name],v=row&&row[code];return v?cellText(v,t):autoText(t,code);}
   function pickTerm(aud){
     var now=new Date(),today=new Date(now.getFullYear(),now.getMonth(),now.getDate()),order=['open','wait','closed','run','end'],best=null,bi=9;
     FLOW.terms.forEach(function(t){var k=stateOf(t,today,aud).key,i=order.indexOf(k);if(i<bi||(i==bi&&k=='wait'&&per(t,aud).rs<per(best,aud).rs)){best=t;bi=i;}});
